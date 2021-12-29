@@ -2,21 +2,29 @@
 // This starter template is using Vue 3 <script setup> SFCs
 // Check out https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup
 import HelloWorld from './components/HelloWorld.vue'
+import { NConfigProvider, darkTheme } from 'naive-ui'
+import useGGb from './components/ggb/ggb';
+
+const {GGb} = useGGb()
 </script>
 
 <template>
-  <div class="logo-box">
-    <img style="height:140px;" src="./assets/electron.png" alt="Electron logo">
-    <span/>
-    <img style="height:140px;" alt="Vite logo" src="./assets/vite.svg" />
-    <span/>
-    <img style="height:140px;" alt="Vue logo" src="./assets/vue.png" />
-  </div>
-  <HelloWorld msg="Hello Vue 3 + TypeScript + Vite" />
-  <div class="static-public">
-    Place static files into the <code>src/renderer/public</code> folder
-    <img style="width:90px;" :src="'./images/node.png'" />
-  </div>
+  <n-config-provider style="width: 100%; height: 100%;" :theme="darkTheme">
+    <div class="logo-box">
+      <img style="height:140px;" src="./assets/electron.png" alt="Electron logo" />
+      <span />
+      <img style="height:140px;" alt="Vite logo" src="./assets/vite.svg" />
+      <span />
+      <img style="height:140px;" alt="Vue logo" src="./assets/vue.png" />
+    </div>
+    <HelloWorld msg="Hello Vue 3 + TypeScript + Vite" />
+    <div class="static-public">
+      Place static files into the
+      <code>src/renderer/public</code> folder
+      <img style="width:90px;" :src="'./images/node.png'" />
+    </div>
+    <GGb />
+  </n-config-provider>
 </template>
 
 <style>
